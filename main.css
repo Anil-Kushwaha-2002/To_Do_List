@@ -1,134 +1,160 @@
-:root {
-        --dark:#374151;
-        --darker:#1F2937;
-        --darkest:#111827;
-        --gray:#6b7280;
-        --light:#eee;
-        --pink:#ec4889;
-        --purple:#8b5cf6;
-    }
-    * {
-        box-sizing: border-box;
+* {
         margin: 0;
-        font-family: -webkit-body;
+        padding: 0;
+        box-sizing: border-box;
     }
     
     body {
-        display: flex;
-        flex-direction: column;
+        background-color: rgb(45, 27, 211);
+        color: rgb(249, 247, 247);
+        font-family: "Poppins", sans-serif;
         min-height: 100vh;
-        background-color: #d1d6df;
-        color: #fff;
-    }
-    header{
-        padding: 2rem 1rem;
-        max-width: 800px;
-        width: 100%;
-        margin: 0 auto;
-    }
-    header h1 {
-        font-size: 2.5rem;
-        font-weight: 300;
-        color: rgb(255, 0, 0);
-        margin-bottom:1rem ;
-    }
-    #new-task-form {
-        display: flex;
-    }
-    input, button {
-        appearance: none;
-        border:none;
-        outline: none;
-        background: none;
-    }
-    #new-task-input {
-        flex: 1  1 0%;
-        background-color: var(--darker);
-        padding: 1rem;
-        border-radius: 1rem;
-        color: var(--light);
-        font-size: 1.25rem;
-    }
-    #new-task-input::placeholder {
-        color:var(--gray);
-    }
-    #new-task-submit {
-        color: var(--pink);
-        font-size: 1.25rem;
-        font-weight: 700;
-        background-image: linear-gradient(to right,var(--pink),var(--purple));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        cursor: pointer;
-        transform: 0.4s;
-    }
-    #new-task-submit:hover {
-        opacity: 0.8;
-    }
-    #new-task-submit:active {
-        opacity: 0.6;
-    }
-    main {
-        flex: 1 1 0%;
-        padding:2rem 1rem ;
-        width: 100%;
-        margin: 0 auto;
-    }
-    .task-list {
-        padding: 1rem;
     }
     
-    .task-list h2 {
-        font-size: 2rem;
-        font-weight: 250;
-        color: black;
-        margin-bottom: 1rem;
+    header {
+        font-size: 1.55rem;
     }
-    #tasks .task {
+    
+    header, 
+    form {
+        min-height: 20vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    form input, 
+    form button {
+        padding: 0.5rem;
+        padding-left: 1rem;
+        font-size: 1.8rem;
+        border: none;
+        background: white;
+        border-radius: 2rem;
+    }
+    
+    form button {
+        color: rgb(255, 200, 0);
+        background: white;
+        cursor: pointer;
+        transition: all 0.3 ease;
+        margin-left: 0.5rem;
+    }
+    
+    form button:hover {
+        color: white;
+        background: rgb(255, 200, 0);
+    }
+    
+    .fa-plus-circle {
+        margin-top: 0.3rem;
+        margin-left: -8px;
+    }
+    
+    .todo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .todo-list {
+        min-width: 30%;
+        list-style: none;
+    }
+    
+    .todo {
+        margin: 0.5rem;
+        padding-left: 0.5rem;
+        background: white;
+        color: black;
+        font-size: 1.5rem;
         display: flex;
         justify-content: space-between;
-        background-color: var(--darkest);
-        padding: 1rem;
-        border-radius: 1rem;
-        margin-bottom: 1rem;
-    }
-    #tasks .task .content {
-        flex: 1 1 0%;
-    }
-    #tasks .task .content .text {
-        color: var(--light);
-        font-size: 1.125rem;
-        width: 100%;
-        display: block;
-        transition: 0.4s;
-    }
-    #task .tassk .content .text:not(:read-only){
-        color: var(--pink);
-    }
-    #tasks .task .actions {
-        display: flex;
-        margin:0 -0.5rem;
-    }
-    .task .actions button {
-        cursor: pointer;
-        margin: 0 0.5rem;
-        font-size: 1.125rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        transform: 0.4s;
-    }
-    .task .actions button:hover {
-        opacity: 0.8;
-    }
-    #new-task-submit:active {
-        opacity: 0.6;
-    }
-    .task .actions .edit {
-        background-image: linear-gradient(to right,var(--pink),var(--purple));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        align-items: center;
+        transition: 0.5s;
+        border-radius: 2rem;
+        font-size: xx-large;
     }
     
-    .task .actions .delete {
-        color: crimson;
+    .todo li {
+        flex: 1;
+    }
+    
+    .trash-btn, 
+    .complete-btn {
+        color: rgb(251, 251, 251);
+        border: none;
+        padding: 1rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+    
+    .complete-btn {
+        background: rgb(255, 200, 0);
+    }
+    
+    .trash-btn {
+        border-top-right-radius: 1.75rem;
+        border-bottom-right-radius: 1.75rem;
+        background: rgb(219, 38, 38);
+    }
+    
+    .todo-item {
+        padding: 0rem 0.5rem;
+    }
+    
+    .fa-trash, 
+    .fa-check-circle {
+        pointer-events: none;
+    }
+    
+    .completed {
+        text-decoration: line-through;
+        opacity: 0.5;
+    }
+    
+    .slide {
+        transform: translateX(10rem);
+        opacity: 0;
+
+    }
+    
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        outline: none;
+        border: none;
+    }
+    
+    .select {
+        margin: 1rem;
+        position: relative;
+        overflow: hidden;
+        border-radius: 50px;
+    }
+    
+    select {
+        color:rgb(10, 10, 10);
+        width: 15rem;
+        height: 3.2rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        font-size:x-large;
+    }
+    
+    .select::after {
+        content: "\25BC";
+        position: absolute;
+        background:rgb(255, 200, 0);
+        top: 0;
+        right: 0;
+        padding: 1rem;
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
+    
+    .select::hover::after {
+        background: rgb(238, 231, 231);
+        color: rgb(255, 200, 0);
     }
